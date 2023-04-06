@@ -1,4 +1,61 @@
-  if (!homePrice || !downPayment || !downPaymentPercentage || !loanAmount || !loanTerm || !interestRate || !propertyTax || !homeInsurance || !pmi) {
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Calculator</title>
+</head>
+<body>
+  <div id="mortgage-calculator">
+    <h1>Mortgage Calculator</h1>
+    <form id="mortgage-form">
+      <label for="home-price">Home Price</label>
+      <input type="number" id="home-price" step="0.01" required>
+
+      <label for="down-payment">Down Payment</label>
+      <input type="number" id="down-payment" step="0.01" required>
+
+      <label for="down-payment-percentage">Down Payment Percentage</label>
+      <input type="number" id="down-payment-percentage" step="0.01" required>
+
+      <label for="loan-amount">Loan Amount</label>
+      <input type="number" id="loan-amount" step="0.01" required>
+
+      <label for="loan-term">Loan Term (years)</label>
+      <input type="number" id="loan-term" required>
+
+      <label for="interest-rate">Interest Rate (%)</label>
+      <input type="number" id="interest-rate" step="0.01" required>
+
+      <label for="property-tax">Property Tax (%)</label>
+      <input type="number" id="property-tax" step="0.01" required>
+
+      <label for="home-insurance">Home Insurance (yearly)</label>
+      <input type="number" id="home-insurance" step="0.01" required>
+
+      <label for="pmi">Private Mortgage Insurance (PMI) Rate (%)</label>
+      <input type="number" id="pmi" step="0.01" required>
+
+      <button type="submit">Calculate</button>
+    </form>
+    <div class="results" id="results"></div>
+    <div id="amortization-schedule"></div>
+  </div>
+
+  <script>
+    document.getElementById("mortgage-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const homePrice = parseFloat(document.getElementById("home-price").value);
+      const downPayment = parseFloat(document.getElementById("down-payment").value);
+      const downPaymentPercentage = parseFloat(document.getElementById("down-payment-percentage").value);
+      const loanAmount = parseFloat(document.getElementById("loan-amount").value);
+      const loanTerm = parseFloat(document.getElementById("loan-term").value);
+      const interestRate = parseFloat(document.getElementById("interest-rate").value) / 100;
+      const propertyTax = parseFloat(document.getElementById("property-tax").value) / 100;
+      const homeInsurance = parseFloat(document.getElementById("home-insurance").value);
+      const pmi = parseFloat(document.getElementById("pmi").value
+if (!homePrice || !downPayment || !downPaymentPercentage || !loanAmount || !loanTerm || !interestRate || !propertyTax || !homeInsurance || !pmi) {
     document.getElementById("results").innerHTML = "Please fill in all fields.";
     return;
   }
